@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My best friend</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f857a6 0%, #ff5858 100%);
+            overflow: hidden;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .love-rain {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+
+        .love {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            opacity: 0.7;
+            animation: fallLove linear infinite;
+        }
+
+        @keyframes fallLove {
+            0% {
+                transform: translateY(-40px) scale(1) rotate(0deg);
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .center-content {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .typing-title {
+            color: #fff;
+            font-size: 2.7rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 24px #f857a6cc;
+            min-height: 3.5rem;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 2.2s steps(22, end) forwards, blink 0.7s step-end infinite alternate;
+            margin-bottom: 18px;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 19ch;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .open-btn {
+            background: linear-gradient(90deg, #ffd6e0 0%, #f857a6 100%);
+            color: #f857a6;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 38px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 24px #f857a655;
+            margin-top: 24px;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            z-index: 2;
+        }
+
+        .open-btn:hover {
+            background: linear-gradient(90deg, #f857a6 0%, #ffd6e0 100%);
+            color: #fff;
+            transform: scale(1.07);
+        }
+
+        .special-card {
+            position: fixed;
+            left: 50%;
+            bottom: -100%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 -8px 32px #f857a655;
+            width: 90vw;
+            max-width: 420px;
+            padding: 44px 32px 36px 32px;
+            text-align: center;
+            z-index: 10;
+            transition: bottom 0.8s cubic-bezier(.77, 0, .18, 1);
+            opacity: 0;
+        }
+
+        .special-card.show {
+            bottom: 0;
+            opacity: 1;
+            animation: popUp 0.8s;
+        }
+
+        @keyframes popUp {
+            0% {
+                bottom: -100%;
+                opacity: 0;
+            }
+
+            80% {
+                bottom: 10px;
+                opacity: 1;
+            }
+
+            100% {
+                bottom: 0;
+                opacity: 1;
+            }
+        }
+
+        .special-card h2 {
+            color: #f857a6;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .special-card p {
+            color: #333;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        .close-btn {
+            margin-top: 18px;
+            background: #f857a6;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 22px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 2px 12px #f857a655;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #ff5858;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 12px;
+            height: 18px;
+            border-radius: 4px;
+            opacity: 0.8;
+            animation: confetti-fall linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-30px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="love-rain" id="love-rain"></div>
+    <div class="confetti" id="confetti"></div>
+    <div class="center-content">
+        <div class="typing-title" id="typing-title">Happy Birthday!</div>
+        <button class="open-btn" id="open-btn">Open Your Special Message</button>
+    </div>
+    <div class="special-card" id="special-card">
+        <h2>FOR YOU</h2>
+        <p>
+            SORRY, I can't explain it in words.<br>
+            Because you are too special and extraordinary.<br <b>I wish you nothing but the best in life.</b>
+        </p>
+        <h2>LOVE FROM ME ♡</h2>
+        <div style="font-size:2.2rem;letter-spacing:8px;">💖💖💖</div>
+        <button class="close-btn" id="close-btn">Close</button>
+    </div>
+    <script>
+        // Love rain
+        function createLoveRain() {
+            const loveRain = document.getElementById('love-rain');
+            for (let i = 0; i < 22; i++) {
+                const love = document.createElement('div');
+                love.className = 'love';
+                love.style.left = Math.random() * 100 + 'vw';
+                love.style.animationDuration = (4 + Math.random() * 4) + 's';
+                love.style.animationDelay = (Math.random() * 4) + 's';
+                love.innerHTML = `<svg width="32" height="32" viewBox="0 0 32 32"><path d="M16 29 Q8 22 4 16 Q0 10 8 5 Q16 0 16 8 Q16 0 24 5 Q32 10 28 16 Q24 22 16 29Z" fill="${['#f857a6', '#ff5858', '#ffd6e0'][i % 3]}"/></svg>`;
+                loveRain.appendChild(love);
+            }
+        }
+        createLoveRain();
+
+        // Confetti
+        function showConfetti() {
+            const confetti = document.getElementById('confetti');
+            confetti.innerHTML = '';
+            for (let i = 0; i < 40; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + 'vw';
+                piece.style.background = ['#f857a6', '#ff5858', '#ffd6e0', '#FFD100', '#005BAC'][i % 5];
+                piece.style.animationDuration = (2 + Math.random() * 2) + 's';
+                piece.style.animationDelay = (Math.random() * 0.7) + 's';
+                confetti.appendChild(piece);
+            }
+            setTimeout(() => confetti.innerHTML = '', 3500);
+        }
+
+        // Typing effect (already handled by CSS, but reset on open)
+        const typingTitle = document.getElementById('typing-title');
+        function resetTyping() {
+            typingTitle.style.animation = 'none';
+            void typingTitle.offsetWidth; // trigger reflow
+            typingTitle.style.animation = null;
+        }
+
+        // Special card logic
+        const openBtn = document.getElementById('open-btn');
+        const specialCard = document.getElementById('special-card');
+        const closeBtn = document.getElementById('close-btn');
+        openBtn.addEventListener('click', () => {
+            specialCard.classList.add('show');
+            showConfetti();
+        });
+        closeBtn.addEventListener('click', () => {
+            specialCard.classList.remove('show');
+            resetTyping();
+        });
+    </script>
+</body>
+
+</html>
