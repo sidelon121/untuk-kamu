@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday For You</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             min-height: 100vh;
             background: linear-gradient(135deg, #181825 0%, #282a36 100%);
             overflow: hidden;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Quicksand', Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -42,19 +44,19 @@
             margin-top: 40px;
         }
         .cake-anim-container {
-            width: 320px;
-            height: 360px;
+            width: 340px;
+            height: 390px;
             position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .cake-svg {
             width: 100%;
             height: 100%;
             display: block;
             opacity: 0;
-            stroke-dasharray: 2600;
-            stroke-dashoffset: 2600;
-            animation: draw-cake 2.5s forwards;
+            stroke-dasharray: 2800;
+            stroke-dashoffset: 2800;
+            animation: draw-cake 2.6s forwards;
             animation-delay: 0.2s;
         }
         @keyframes draw-cake {
@@ -66,16 +68,17 @@
         .cake-svg .cake-fill {
             opacity: 0;
             animation: cake-fill-appear 1.3s forwards;
-            animation-delay: 1.8s;
+            animation-delay: 2s;
         }
         @keyframes cake-fill-appear {
             to { opacity: 1; }
         }
         .typing-title {
+            font-family: 'Playfair Display', serif;
             color: #cba6f7;
-            font-size: 2.4rem;
-            font-weight: bold;
-            letter-spacing: 2px;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-shadow: 0 4px 24px #8c43ea55;
             min-height: 3.5rem;
             margin-bottom: 18px;
@@ -85,13 +88,14 @@
             width: 0;
         }
         .open-btn {
+            font-family: 'Quicksand', Arial, sans-serif;
             background: linear-gradient(90deg, #4b4e72 0%, #8c43ea 100%);
             color: #fff;
             border: none;
             border-radius: 30px;
             padding: 14px 38px;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             box-shadow: 0 4px 24px #cba6f755;
             margin-top: 24px;
@@ -126,12 +130,15 @@
             100% { bottom: 0; opacity: 1;}
         }
         .special-card h2 {
+            font-family: 'Playfair Display', serif;
             color: #cba6f7;
             font-size: 2rem;
             margin-bottom: 12px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
         .special-card p {
+            font-family: 'Quicksand', Arial, sans-serif;
             color: #eee;
             font-size: 1.15rem;
             margin-bottom: 18px;
@@ -139,6 +146,7 @@
             min-height: 80px;
         }
         .close-btn {
+            font-family: 'Quicksand', Arial, sans-serif;
             margin-top: 18px;
             background: linear-gradient(90deg, #4b4e72 0%, #8c43ea 100%);
             color: #fff;
@@ -146,6 +154,7 @@
             border-radius: 20px;
             padding: 8px 22px;
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             box-shadow: 0 2px 12px #cba6f755;
             transition: background 0.2s;
@@ -255,16 +264,16 @@
             setTimeout(() => confetti.innerHTML = '', 3500);
         }
 
-        // Efek mengetik untuk judul (JS, bukan CSS)
+        // Efek mengetik untuk judul (JS)
         const typingTitle = document.getElementById('typing-title');
         const happyBirthdayText = "Happy Birthday, Arla!";
-        function typeTitle(text, element, speed = 60) {
+        function typeTitle(text, element, speed = 65) {
             element.innerHTML = '';
             element.style.width = '0ch';
             let i = 0;
             function type() {
                 if (i <= text.length) {
-                    element.innerHTML = text.slice(0, i);
+                    element.textContent = text.slice(0, i);
                     element.style.width = i + 'ch';
                     i++;
                     setTimeout(type, speed);
@@ -273,32 +282,34 @@
             type();
         }
         setTimeout(() => {
-            typeTitle(happyBirthdayText, typingTitle, 70);
-        }, 900);
+            typeTitle(happyBirthdayText, typingTitle, 68);
+        }, 1100);
 
-        // Pesan efek mengetik di kartu (tidak ikut kode HTML)
+        // Pesan efek mengetik di kartu (per baris, hanya teks)
         const messageLines = [
             "SORRY, I can't explain it in words.",
             "Because you are too special and extraordinary.",
             "I wish you nothing but the best in life."
         ];
         const cardMessage = document.getElementById('card-message');
-        function typeMessage(lines, element, speed = 36, lineDelay = 420) {
+        function typeMessage(lines, element, speed = 33, lineDelay = 620) {
             element.innerHTML = '';
             let lineIdx = 0;
             function typeLine() {
                 let i = 0;
-                element.innerHTML += (lineIdx === 0 ? "" : "<br>");
-                const currentLine = lines[lineIdx];
+                let span = document.createElement('span');
+                element.appendChild(span);
                 function typeChar() {
-                    if (i <= currentLine.length) {
-                        element.innerHTML = element.innerHTML.replace(/(<br>)?$/, '') + currentLine.slice(0, i) + (i < currentLine.length ? "|" : "");
+                    if (i < lines[lineIdx].length) {
+                        span.textContent += lines[lineIdx][i];
                         i++;
                         setTimeout(typeChar, speed);
                     } else {
-                        element.innerHTML = element.innerHTML.replace(/\|$/, '');
                         lineIdx++;
-                        if (lineIdx < lines.length) setTimeout(typeLine, lineDelay);
+                        if (lineIdx < lines.length) {
+                            element.appendChild(document.createElement('br'));
+                            setTimeout(typeLine, lineDelay);
+                        }
                     }
                 }
                 typeChar();
@@ -313,7 +324,7 @@
         openBtn.addEventListener('click', () => {
             specialCard.classList.add('show');
             showConfetti();
-            typeMessage(messageLines, cardMessage, 34, 600);
+            typeMessage(messageLines, cardMessage, 33, 700);
         });
         closeBtn.addEventListener('click', () => {
             specialCard.classList.remove('show');
