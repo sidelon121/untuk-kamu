@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,38 +16,24 @@
             align-items: center;
             justify-content: center;
         }
-
         .love-rain {
             pointer-events: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             z-index: 1;
         }
-
         .love {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             opacity: 0.9;
             animation: fallLove linear infinite;
         }
-
         @keyframes fallLove {
-            0% {
-                transform: translateY(-40px) scale(1) rotate(0deg);
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) scale(1.2) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(-40px) scale(1) rotate(0deg);}
+            80% { opacity: 1;}
+            100% { transform: translateY(110vh) scale(1.2) rotate(360deg); opacity: 0;}
         }
-
         .center-content {
             z-index: 2;
             display: flex;
@@ -56,75 +41,49 @@
             align-items: center;
             margin-top: 40px;
         }
-
         .cake-anim-container {
-            width: 200px;
-            height: 220px;
+            width: 320px;
+            height: 360px;
             position: relative;
             margin-bottom: 10px;
         }
-
         .cake-svg {
             width: 100%;
-            height: 200px;
+            height: 100%;
             display: block;
             opacity: 0;
-            stroke-dasharray: 1700;
-            stroke-dashoffset: 1700;
-            animation: draw-cake 2.2s forwards;
-            animation-delay: 0.4s;
+            stroke-dasharray: 2600;
+            stroke-dashoffset: 2600;
+            animation: draw-cake 2.5s forwards;
+            animation-delay: 0.2s;
         }
-
         @keyframes draw-cake {
             to {
                 opacity: 1;
                 stroke-dashoffset: 0;
             }
         }
-
         .cake-svg .cake-fill {
             opacity: 0;
-            animation: cake-fill-appear 1.2s forwards;
-            animation-delay: 1.7s;
+            animation: cake-fill-appear 1.3s forwards;
+            animation-delay: 1.8s;
         }
-
         @keyframes cake-fill-appear {
-            to {
-                opacity: 1;
-            }
+            to { opacity: 1; }
         }
-
-        /* Happy Birthday typing effect */
         .typing-title {
             color: #cba6f7;
-            font-size: 2.1rem;
+            font-size: 2.4rem;
             font-weight: bold;
             letter-spacing: 2px;
             text-shadow: 0 4px 24px #8c43ea55;
             min-height: 3.5rem;
+            margin-bottom: 18px;
             border-right: 3px solid #cba6f7;
             white-space: nowrap;
             overflow: hidden;
             width: 0;
-            animation: typing-title 2.2s steps(22, end) 0.5s forwards, blink 0.7s step-end infinite alternate;
-            margin-bottom: 18px;
         }
-
-        @keyframes typing-title {
-            from {
-                width: 0;
-            }
-            to {
-                width: 19ch;
-            }
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-
         .open-btn {
             background: linear-gradient(90deg, #4b4e72 0%, #8c43ea 100%);
             color: #fff;
@@ -139,58 +98,39 @@
             transition: background 0.3s, color 0.3s, transform 0.2s;
             z-index: 2;
         }
-
         .open-btn:hover {
             background: linear-gradient(90deg, #a6adc8 0%, #cba6f7 100%);
             color: #282a36;
             transform: scale(1.07);
         }
-
         .special-card {
             position: fixed;
-            left: 50%;
-            bottom: -100%;
+            left: 50%; bottom: -100%;
             transform: translateX(-50%);
             background: rgba(34, 34, 48, 0.98);
             border-radius: 32px 32px 0 0;
             box-shadow: 0 -8px 32px #cba6f755;
-            width: 90vw;
-            max-width: 420px;
+            width: 90vw; max-width: 420px;
             padding: 44px 32px 36px 32px;
             text-align: center;
             z-index: 10;
             transition: bottom 0.8s cubic-bezier(.77, 0, .18, 1);
             opacity: 0;
         }
-
         .special-card.show {
-            bottom: 0;
-            opacity: 1;
-            animation: popUp 0.8s;
+            bottom: 0; opacity: 1; animation: popUp 0.8s;
         }
-
         @keyframes popUp {
-            0% {
-                bottom: -100%;
-                opacity: 0;
-            }
-            80% {
-                bottom: 10px;
-                opacity: 1;
-            }
-            100% {
-                bottom: 0;
-                opacity: 1;
-            }
+            0% { bottom: -100%; opacity: 0;}
+            80% { bottom: 10px; opacity: 1;}
+            100% { bottom: 0; opacity: 1;}
         }
-
         .special-card h2 {
             color: #cba6f7;
             font-size: 2rem;
             margin-bottom: 12px;
             letter-spacing: 1px;
         }
-
         .special-card p {
             color: #eee;
             font-size: 1.15rem;
@@ -198,7 +138,6 @@
             line-height: 1.7;
             min-height: 80px;
         }
-
         .close-btn {
             margin-top: 18px;
             background: linear-gradient(90deg, #4b4e72 0%, #8c43ea 100%);
@@ -211,79 +150,67 @@
             box-shadow: 0 2px 12px #cba6f755;
             transition: background 0.2s;
         }
-
         .close-btn:hover {
             background: linear-gradient(90deg, #a6adc8 0%, #cba6f7 100%);
             color: #282a36;
         }
-
-        /* Confetti */
         .confetti {
             position: fixed;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
             pointer-events: none;
             z-index: 20;
         }
-
         .confetti-piece {
             position: absolute;
-            width: 12px;
-            height: 18px;
+            width: 12px; height: 18px;
             border-radius: 4px;
             opacity: 0.8;
             animation: confetti-fall linear forwards;
         }
-
         @keyframes confetti-fall {
-            0% {
-                transform: translateY(-30px) rotate(0deg);
-            }
-            100% {
-                transform: translateY(110vh) rotate(360deg);
-            }
+            0% {transform: translateY(-30px) rotate(0deg);}
+            100% {transform: translateY(110vh) rotate(360deg);}
         }
     </style>
 </head>
-
 <body>
     <div class="love-rain" id="love-rain"></div>
     <div class="confetti" id="confetti"></div>
     <div class="center-content">
         <div class="cake-anim-container">
-            <svg class="cake-svg" viewBox="0 0 200 200" fill="none" stroke="#a6adc8" stroke-width="3">
-                <!-- Piring -->
-                <ellipse class="cake-fill" cx="100" cy="185" rx="60" ry="12"
-                    fill="#232634" stroke="#a6adc8" />
-                <!-- Lapisan bawah -->
-                <rect class="cake-fill" x="50" y="130" rx="17" width="100" height="45"
-                    fill="#8c43ea" stroke="#cba6f7" />
-                <!-- Krim bawah -->
-                <ellipse class="cake-fill" cx="100" cy="130" rx="50" ry="13"
-                    fill="#cba6f7" stroke="#f5e0dc" />
-                <!-- Lapisan tengah -->
-                <rect class="cake-fill" x="60" y="95" rx="14" width="80" height="40"
-                    fill="#313244" stroke="#cba6f7" />
-                <!-- Krim tengah -->
-                <ellipse class="cake-fill" cx="100" cy="95" rx="40" ry="11"
-                    fill="#a6e3a1" stroke="#313244" />
-                <!-- Lapisan atas -->
-                <rect class="cake-fill" x="70" y="65" rx="10" width="60" height="32"
-                    fill="#f5e0dc" stroke="#cba6f7" />
-                <!-- Krim atas -->
-                <ellipse class="cake-fill" cx="100" cy="65" rx="30" ry="8"
-                    fill="#cba6f7" stroke="#a6adc8" />
-                <!-- Lilin -->
-                <rect class="cake-fill" x="96" y="37" width="8" height="26" rx="3"
-                    fill="#b4befe" stroke="#a6adc8" />
-                <!-- Api lilin -->
-                <ellipse class="cake-fill" cx="100" cy="34" rx="5" ry="7"
-                    fill="#f9e2af" stroke="#fab387" />
-                <!-- Ornamen garis -->
-                <path d="M70 142 Q100 160 130 142" fill="none" stroke="#f5e0dc" stroke-width="2"/>
-                <path d="M70 150 Q100 168 130 150" fill="none" stroke="#cba6f7" stroke-width="2"/>
+            <svg class="cake-svg" viewBox="0 0 400 400" fill="none" stroke="#a6adc8" stroke-width="3">
+                <!-- Plate -->
+                <ellipse class="cake-fill" cx="200" cy="360" rx="110" ry="22" fill="#232634" stroke="#a6adc8"/>
+                <!-- Cake Base -->
+                <rect class="cake-fill" x="90" y="250" rx="30" width="220" height="80" fill="#8c43ea" stroke="#cba6f7"/>
+                <!-- Bottom Cream -->
+                <ellipse class="cake-fill" cx="200" cy="250" rx="110" ry="23" fill="#cba6f7" stroke="#f5e0dc"/>
+                <!-- Cake Middle -->
+                <rect class="cake-fill" x="110" y="180" rx="22" width="180" height="75" fill="#313244" stroke="#cba6f7"/>
+                <!-- Middle Cream -->
+                <ellipse class="cake-fill" cx="200" cy="180" rx="90" ry="18" fill="#a6e3a1" stroke="#313244"/>
+                <!-- Cake Top -->
+                <rect class="cake-fill" x="135" y="130" rx="17" width="130" height="55" fill="#f5e0dc" stroke="#cba6f7"/>
+                <!-- Top Cream -->
+                <ellipse class="cake-fill" cx="200" cy="130" rx="65" ry="15" fill="#cba6f7" stroke="#a6adc8"/>
+                <!-- Candles -->
+                <rect class="cake-fill" x="190" y="80" width="8" height="35" rx="3" fill="#b4befe" stroke="#a6adc8"/>
+                <rect class="cake-fill" x="215" y="88" width="8" height="30" rx="3" fill="#b4befe" stroke="#a6adc8"/>
+                <rect class="cake-fill" x="165" y="88" width="8" height="30" rx="3" fill="#b4befe" stroke="#a6adc8"/>
+                <!-- Candle Flames -->
+                <ellipse class="cake-fill" cx="194" cy="77" rx="5" ry="9" fill="#f9e2af" stroke="#fab387"/>
+                <ellipse class="cake-fill" cx="219" cy="85" rx="4" ry="7" fill="#f9e2af" stroke="#fab387"/>
+                <ellipse class="cake-fill" cx="169" cy="85" rx="4" ry="7" fill="#f9e2af" stroke="#fab387"/>
+                <!-- Decorations -->
+                <circle class="cake-fill" cx="160" cy="160" r="7" fill="#fab387" stroke="#cba6f7"/>
+                <circle class="cake-fill" cx="240" cy="170" r="7" fill="#fab387" stroke="#cba6f7"/>
+                <circle class="cake-fill" cx="200" cy="220" r="7" fill="#89dceb" stroke="#cba6f7"/>
+                <ellipse class="cake-fill" cx="170" cy="270" rx="8" ry="5" fill="#f38ba8" stroke="#cba6f7"/>
+                <ellipse class="cake-fill" cx="230" cy="290" rx="8" ry="5" fill="#f38ba8" stroke="#cba6f7"/>
+                <!-- Fancy icing lines -->
+                <path d="M140 270 Q200 320 260 270" fill="none" stroke="#f5e0dc" stroke-width="3"/>
+                <path d="M140 290 Q200 340 260 290" fill="none" stroke="#cba6f7" stroke-width="3"/>
             </svg>
         </div>
         <div class="typing-title" id="typing-title"></div>
@@ -328,48 +255,55 @@
             setTimeout(() => confetti.innerHTML = '', 3500);
         }
 
-        // Happy Birthday typing effect (title)
+        // Efek mengetik untuk judul (JS, bukan CSS)
         const typingTitle = document.getElementById('typing-title');
         const happyBirthdayText = "Happy Birthday, Arla!";
-
         function typeTitle(text, element, speed = 60) {
             element.innerHTML = '';
+            element.style.width = '0ch';
             let i = 0;
             function type() {
-                if (i < text.length) {
-                    element.innerHTML += text[i];
+                if (i <= text.length) {
+                    element.innerHTML = text.slice(0, i);
+                    element.style.width = i + 'ch';
                     i++;
                     setTimeout(type, speed);
                 }
             }
             type();
         }
-
-        // Jalankan efek mengetik pada title setelah delay agar sinkron dengan animasi kue
         setTimeout(() => {
             typeTitle(happyBirthdayText, typingTitle, 70);
-        }, 700);
+        }, 900);
 
-        // Pesan efek mengetik di kartu
-        const message = `SORRY, I can't explain it in words.<br>
-Because you are too special and extraordinary.<br>
-<b>I wish you nothing but the best in life.</b>`;
+        // Pesan efek mengetik di kartu (tidak ikut kode HTML)
+        const messageLines = [
+            "SORRY, I can't explain it in words.",
+            "Because you are too special and extraordinary.",
+            "I wish you nothing but the best in life."
+        ];
         const cardMessage = document.getElementById('card-message');
-
-        function typeMessage(text, element, speed = 32) {
+        function typeMessage(lines, element, speed = 36, lineDelay = 420) {
             element.innerHTML = '';
-            let i = 0;
-            let tag = false;
-            function type() {
-                if (i < text.length) {
-                    if (text[i] === '<') tag = true;
-                    element.innerHTML += text[i];
-                    if (text[i] === '>') tag = false;
-                    i++;
-                    setTimeout(type, tag ? 0 : speed);
+            let lineIdx = 0;
+            function typeLine() {
+                let i = 0;
+                element.innerHTML += (lineIdx === 0 ? "" : "<br>");
+                const currentLine = lines[lineIdx];
+                function typeChar() {
+                    if (i <= currentLine.length) {
+                        element.innerHTML = element.innerHTML.replace(/(<br>)?$/, '') + currentLine.slice(0, i) + (i < currentLine.length ? "|" : "");
+                        i++;
+                        setTimeout(typeChar, speed);
+                    } else {
+                        element.innerHTML = element.innerHTML.replace(/\|$/, '');
+                        lineIdx++;
+                        if (lineIdx < lines.length) setTimeout(typeLine, lineDelay);
+                    }
                 }
+                typeChar();
             }
-            type();
+            typeLine();
         }
 
         // Special card logic
@@ -379,7 +313,7 @@ Because you are too special and extraordinary.<br>
         openBtn.addEventListener('click', () => {
             specialCard.classList.add('show');
             showConfetti();
-            typeMessage(message, cardMessage, 32);
+            typeMessage(messageLines, cardMessage, 34, 600);
         });
         closeBtn.addEventListener('click', () => {
             specialCard.classList.remove('show');
@@ -387,6 +321,4 @@ Because you are too special and extraordinary.<br>
         });
     </script>
 </body>
-
 </html>
-
