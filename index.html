@@ -62,7 +62,7 @@
         .cake-sketch svg {
             display: block;
             margin: 0 auto 20px auto;
-            filter: drop-shadow(0 2px 8px #f857a655);
+            filter: drop-shadow(10px 20px #f857a655);
         }
 
         .typing-title {
@@ -116,6 +116,12 @@
             color: #fff;
             transform: scale(1.07);
         }
+
+        openBtn.addEventListener('click', () => {
+    specialCard.classList.add('show');
+    showConfetti();
+    typeMessage(message, cardMessage, 32);
+});
 
         .special-card {
             position: fixed;
@@ -247,7 +253,12 @@
     <div class="special-card" id="special-card">
         <h2>FOR YOU</h2>
         <p id="card-message"></p>
+    SORRY, I can't explain it in words.<br>
+    Because you are too special and extraordinary.<br>
+    <b>I wish you nothing but the best in life.</b>
+</p>
         <h2>LOVE FROM ME ♡</h2>
         <div style="font-size:2.2rem;letter-spacing:8px;">💖💖💖</div>
         <button class="close-btn*
 
+
