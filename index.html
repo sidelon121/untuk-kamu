@@ -59,6 +59,12 @@
             margin-top: 40px;
         }
 
+        .cake-sketch svg {
+            display: block;
+            margin: 0 auto 20px auto;
+            filter: drop-shadow(0 2px 8px #f857a655);
+        }
+
         .typing-title {
             color: #e0e1ee;
             font-size: 2.7rem;
@@ -163,6 +169,7 @@
             font-size: 1.15rem;
             margin-bottom: 18px;
             line-height: 1.7;
+            min-height: 80px;
         }
 
         .close-btn {
@@ -218,73 +225,29 @@
     <div class="love-rain" id="love-rain"></div>
     <div class="confetti" id="confetti"></div>
     <div class="center-content">
+        <div class="cake-sketch" style="margin-bottom:20px;">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                <!-- Lapisan dasar kue -->
+                <ellipse cx="60" cy="90" rx="40" ry="12" fill="#FFF5EA" stroke="#E5A07D" stroke-width="2"/>
+                <rect x="20" y="50" width="80" height="40" rx="18" fill="#FFD6E0" stroke="#E5A07D" stroke-width="2"/>
+                <!-- Lapisan krim -->
+                <ellipse cx="60" cy="50" rx="40" ry="10" fill="#FFF" stroke="#E5A07D" stroke-width="2"/>
+                <!-- Lilin -->
+                <rect x="57" y="33" width="6" height="18" rx="3" fill="#FECF72" stroke="#E5A07D" stroke-width="1"/>
+                <!-- Api lilin -->
+                <ellipse cx="60" cy="32" rx="3" ry="6" fill="#FFD100" stroke="#E5A07D" stroke-width="1"/>
+                <!-- Ornamen garis tangan -->
+                <path d="M30 70 Q40 75 50 70 Q60 65 70 70 Q80 75 90 70" stroke="#E5A07D" stroke-width="1.5" fill="none"/>
+                <path d="M30 80 Q40 85 50 80 Q60 75 70 80 Q80 85 90 80" stroke="#E5A07D" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
         <div class="typing-title" id="typing-title">Happy Birthday, Arla!</div>
         <button class="open-btn" id="open-btn">Open Your Special Message</button>
     </div>
     <div class="special-card" id="special-card">
         <h2>FOR YOU</h2>
-        <p>
-            SORRY, I can't explain it in words.<br>
-            Because you are too special and extraordinary.<br <b>I wish you nothing but the best in life.</b>
-        </p>
+        <p id="card-message"></p>
         <h2>LOVE FROM ME ♡</h2>
         <div style="font-size:2.2rem;letter-spacing:8px;">💖💖💖</div>
-        <button class="close-btn" id="close-btn">Close</button>
-    </div>
-    <script>
-        // Love rain
-        function createLoveRain() {
-            const loveRain = document.getElementById('love-rain');
-            for (let i = 0; i < 22; i++) {
-                const love = document.createElement('div');
-                love.className = 'love';
-                love.style.left = Math.random() * 100 + 'vw';
-                love.style.animationDuration = (4 + Math.random() * 4) + 's';
-                love.style.animationDelay = (Math.random() * 4) + 's';
-                love.innerHTML = `<svg width="32" height="32" viewBox="0 0 32 32"><path d="M16 29 Q8 22 4 16 Q0 10 8 5 Q16 0 16 8 Q16 0 24 5 Q32 10 28 16 Q24 22 16 29Z" fill="${['#f857a6', '#ff5858', '#ffd6e0'][i % 3]}"/></svg>`;
-                loveRain.appendChild(love);
-            }
-        }
-        createLoveRain();
-
-        // Confetti
-        function showConfetti() {
-            const confetti = document.getElementById('confetti');
-            confetti.innerHTML = '';
-            for (let i = 0; i < 40; i++) {
-                const piece = document.createElement('div');
-                piece.className = 'confetti-piece';
-                piece.style.left = Math.random() * 100 + 'vw';
-                piece.style.background = ['#f857a6', '#ff5858', '#ffd6e0', '#FFD100', '#005BAC'][i % 5];
-                piece.style.animationDuration = (2 + Math.random() * 2) + 's';
-                piece.style.animationDelay = (Math.random() * 0.7) + 's';
-                confetti.appendChild(piece);
-            }
-            setTimeout(() => confetti.innerHTML = '', 3500);
-        }
-
-        // Typing effect (already handled by CSS, but reset on open)
-        const typingTitle = document.getElementById('typing-title');
-        function resetTyping() {
-            typingTitle.style.animation = 'none';
-            void typingTitle.offsetWidth; // trigger reflow
-            typingTitle.style.animation = null;
-        }
-
-        // Special card logic
-        const openBtn = document.getElementById('open-btn');
-        const specialCard = document.getElementById('special-card');
-        const closeBtn = document.getElementById('close-btn');
-        openBtn.addEventListener('click', () => {
-            specialCard.classList.add('show');
-            showConfetti();
-        });
-        closeBtn.addEventListener('click', () => {
-            specialCard.classList.remove('show');
-            resetTyping();
-        });
-    </script>
-</body>
-
-</html>
-
+        <button class="close-btn*
+
